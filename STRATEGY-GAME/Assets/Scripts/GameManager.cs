@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         {
             
             spawn.touch = true;
-            Destroy(spawn.preview.gameObject);
+            if (spawn.preview != null) Destroy(spawn.preview.gameObject);
             spawn.prefab = spawnsObj[index];
             Preview(index);
        
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     {
         
         spawn.touch = false;
-        Destroy(spawn.preview.gameObject);
+        if (spawn.preview!=null) Destroy(spawn.preview.gameObject);
         productMenu.DOAnchorPosX(0, 0.1f).SetEase(Ease.OutExpo);
         spawn.InfoFalse();
     }

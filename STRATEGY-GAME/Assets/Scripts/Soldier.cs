@@ -5,13 +5,15 @@ using Pathfinding;
 
 public class Soldier : MonoBehaviour
 {
-   
+    public GameObject text;
+    public SpriteRenderer cell;
     bool onObject;
     AIDestinationSetter AIDestinationSetter;
-    public SpriteRenderer cell;
     Color startColor;
+
     private void Start()
     {
+       
         startColor = cell.color;
         AIDestinationSetter = transform.parent.GetComponent<AIDestinationSetter>();
         
@@ -39,6 +41,7 @@ public class Soldier : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        text.SetActive(false);
         cell.color = Color.green;
         AIDestinationSetter.target = transform.position;
         AIDestinationSetter.enabled = true;
